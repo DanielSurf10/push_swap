@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 11:12:07 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/08 12:34:48 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,11 +14,15 @@
 # define PUSH_SWAP_H
 
 #include <stdlib.h>
+#include <limits.h>
 #include "libft.h"
 
 // Utils
 t_list	*lst_index(t_list *lst, int index);
 t_list	*lst_rev_index(t_list *lst, int index);
+t_list	*create_node(int num);
+int		lst_contains(t_list *lst, int num);
+long	ft_atol(const char *str);
 
 // Push
 void	pa(t_list **lst_b, t_list **lst_a);
@@ -38,5 +42,8 @@ void	rr(t_list **lst_a, t_list **lst_b);
 void	rra(t_list **lst_a);
 void	rrb(t_list **lst_b);
 void	rrr(t_list **lst_a, t_list **lst_b);
+
+// Validations
+int		validate(int argc, char *argv[]);
 
 #endif
