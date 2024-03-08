@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:55:28 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 11:02:10 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/08 11:38:07 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ void	lst_swap(t_list *lst)
 
 void	sa(t_list **lst_a)
 {
-	lst_swap(lst_a);
+	lst_swap(*lst_a);
 }
 
 void	sb(t_list **lst_b)
 {
-	lst_swap(lst_b);
+	lst_swap(*lst_b);
 }
 
 void	ss(t_list **lst_a, t_list **lst_b)
 {
-	lst_swap(lst_a);
-	lst_swap(lst_b);
+	lst_swap(*lst_a);
+	lst_swap(*lst_b);
 }
