@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:04:52 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 11:09:36 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/08 17:35:57 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,16 +31,19 @@ void	lst_rev_rotate(t_list **lst)
 
 void	rra(t_list **lst_a)
 {
+	write(1, "rra\n", 4);
 	lst_rev_rotate(lst_a);
 }
 
 void	rrb(t_list **lst_b)
 {
+	write(1, "rrb\n", 4);
 	lst_rev_rotate(lst_b);
 }
 
 void	rrr(t_list **lst_a, t_list **lst_b)
 {
+	write(1, "rrr\n", 4);
 	lst_rev_rotate(lst_a);
 	lst_rev_rotate(lst_b);
 }
