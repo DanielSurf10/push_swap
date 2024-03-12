@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 20:23:18 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:24:27 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,3 +142,48 @@ int	lst_get_index(t_list *lst, int num)
 	}
 	return (-1);
 }
+
+// t_list	*get_smallest_number_greater_than(t_list *lst, int num)
+// {
+// 	t_list	*min;
+// 	t_list	*aux;
+//
+// 	if (!lst)
+// 		return (NULL);
+// 	aux = lst;
+// 	min = lst;
+// 	if (*((int *) min->content) == *((int *) lst_max_value(lst)->content))
+// 		return (NULL);
+// 	while (aux)
+// 	{
+// 		if (aux->content && min->content)
+// 			if (*((int *) aux->content) > num
+// 				&& *((int *) aux->content) < *((int *) min->content))
+// 				min = aux;
+// 		aux = aux->next;
+// 	}
+// 	printf("(%d)\n", *((int *) min->content));
+// 	return (min);
+// }
+//
+// void lst_assign_indices(t_list *lst)
+// {
+// 	int		index = 0;
+// 	int		min_value;
+// 	t_list	*min_node;
+//
+// 	if (lst == NULL)
+// 		return;
+// 	index = 0;
+// 	min_node = lst_min_value(lst);
+// 	while (min_node != NULL)
+// 	{
+// 		if (min_node->content)
+// 		{
+// 			min_value = *((int *) min_node->content);
+// 			min_node->pos = index;
+// 		}
+// 		index++;
+// 		min_node = get_smallest_number_greater_than(lst, min_value);
+// 	}
+// }

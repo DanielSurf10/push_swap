@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/SFML-2.5.1-sources.zip" ABSOLUTE)
-get_filename_component(directory "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-src" ABSOLUTE)
+get_filename_component(filename "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/SFML-2.5.1-sources.zip" ABSOLUTE)
+get_filename_component(directory "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-src" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

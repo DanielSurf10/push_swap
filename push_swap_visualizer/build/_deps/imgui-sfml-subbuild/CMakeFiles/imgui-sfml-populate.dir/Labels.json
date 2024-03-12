@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate-complete.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/CMakeFiles/imgui-sfml-populate-complete.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-build.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-install.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-configure.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-mkdir.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-download.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-download.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-install.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-update.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-mkdir.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-patch.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-patch.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-configure.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-test.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-build.rule"
 		},
 		{
-			"file" : "/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-update.rule"
+			"file" : "/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/imgui-sfml-subbuild/imgui-sfml-populate-prefix/src/imgui-sfml-populate-stamp/imgui-sfml-populate-test.rule"
 		}
 	],
 	"target" : 

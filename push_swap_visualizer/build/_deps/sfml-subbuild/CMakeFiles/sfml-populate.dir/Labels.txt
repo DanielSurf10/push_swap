@@ -1,14 +1,14 @@
 # Target labels
  sfml-populate
 # Source files and their labels
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test.rule
-/home/daniel/Documentos/GitHub/push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/CMakeFiles/sfml-populate-complete.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-install.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-mkdir.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-download.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-update.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-patch.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-configure.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-build.rule
+/nfs/homes/danbarbo/projetos/08 - push_swap/push_swap_visualizer/build/_deps/sfml-subbuild/sfml-populate-prefix/src/sfml-populate-stamp/sfml-populate-test.rule

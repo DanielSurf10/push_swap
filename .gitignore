@@ -2,3 +2,4 @@
 *.a
 a.out
 ./push_swap
+push_swap_visualizer/build

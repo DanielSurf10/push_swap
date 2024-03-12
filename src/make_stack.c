@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:25:12 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 15:23:12 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/09 17:00:19 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ static int	string_is_int(char *str)
 	i = 0;
 	if (!str)
 		return (0);
-	if (str[0] == '-')
+	if (str[0] == '-' || str[0] == '+')
 		i++;
 	while (str[i])
 	{

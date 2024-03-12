@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 15:54:27 by danbarbo          #+#    #+#              #
-#    Updated: 2024/03/08 19:56:53 by danbarbo         ###   ########.fr        #
+#    Updated: 2024/03/11 19:09:33 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ HEADERS	:= -I ./include \
 
 LIBS	:= ${LIBFT}/libft.a
 
-SRCS	:= ${wildcard src/*}
+SRCS	:= ${shell find src -iname "*.c"}
 OBJS	:= ${SRCS:src/%.c=obj/%.o}
 
 SRCS_B	:= ${wildcard src_bonus/*}

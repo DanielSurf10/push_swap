@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 23:06:30 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/11 19:24:31 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,15 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	push_swap.stack_a = make_stack(argc, argv);
+	push_swap.stack_b = NULL;
 
 	if (!push_swap.stack_a)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (1);
 	}
+
+	// lst_assign_indices(push_swap.stack_a);
 
 	lst_size = ft_lstsize(push_swap.stack_a);
 
@@ -54,6 +57,10 @@ int	main(int argc, char *argv[])
 	// 	min = *((int *)node->content);
 	// index = lst_get_index(push_swap.stack_a, min);
 	// proximity = ft_lstsize(push_swap.stack_a) / 2;
+
+	for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
+		printf("%2d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
+
 
 	while (push_swap.stack_a)
 	{

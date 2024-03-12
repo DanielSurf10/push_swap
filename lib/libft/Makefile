@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/10 19:29:07 by danbarbo          #+#    #+#              #
-#    Updated: 2024/03/08 11:41:20 by danbarbo         ###   ########.fr        #
+#    Updated: 2024/03/11 19:08:47 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,15 +51,6 @@ SRC	= ${addprefix src/, \
 			ft_substr.c \
 			ft_tolower.c \
 			ft_toupper.c \
-			ft_lstadd_back_bonus.c \
-			ft_lstadd_front_bonus.c \
-			ft_lstclear_bonus.c \
-			ft_lstdelone_bonus.c \
-			ft_lstiter_bonus.c \
-			ft_lstlast_bonus.c \
-			ft_lstmap_bonus.c \
-			ft_lstnew_bonus.c \
-			ft_lstsize_bonus.c \
 		}
 OBJ	= ${SRC:src/%.c=obj/%.o}
 

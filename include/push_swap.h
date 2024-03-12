@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 19:22:11 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/11 17:35:01 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@
 #include "libft.h"
 
 // struct
+
+typedef struct s_list
+{
+	int				pos;
+	void			*content;
+	struct s_list	*next;
+}	t_list;
+
 typedef struct s_push_swap
 {
 	t_list	*stack_a;
@@ -29,6 +37,17 @@ typedef struct s_push_swap
 
 // Main
 t_list	*make_stack(int argc, char *argv[]);
+
+// linked lists manipulation
+t_list	*ft_lstnew(void *content);
+t_list	*ft_lstlast(t_list *lst);
+int		ft_lstsize(t_list *lst);
+void	ft_lstadd_front(t_list **lst, t_list *new);
+void	ft_lstadd_back(t_list **lst, t_list *new);
+void	ft_lstdelone(t_list *lst, void (*del)(void*));
+void	ft_lstclear(t_list **lst, void (*del)(void*));
+void	ft_lstiter(t_list *lst, void (*f)(void *));
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 
 // Utils list
 t_list	*create_node(int num);
@@ -39,6 +58,7 @@ t_list	*lst_min_group(t_list *lst, int until);
 t_list	*lst_max_value(t_list *lst);
 int		lst_get_index(t_list *lst, int num);
 int		lst_contains(t_list *lst, int num);
+void	lst_assign_indices(t_list *lst);
 
 // Utils
 long	ft_atol(const char *str);
