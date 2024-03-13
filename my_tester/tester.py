@@ -6,7 +6,7 @@ import subprocess
 n_values = [100]
 # n_values = [x for x in range(3, 101) if x == 3 or x == 5 or x % 10 == 0]
 range_start = -500
-range_end = 0
+range_end = 500
 
 for n in n_values:
 	outputs = []
@@ -14,7 +14,7 @@ for n in n_values:
 	min_sequence = []
 	print(f"For n = {n}:")
 
-	for _ in range(100):
+	for _ in range(1000):
 		numbers = random.sample(range(range_start, range_end + 1), n)
 		numbers_string = ' '.join(map(str, numbers))
 

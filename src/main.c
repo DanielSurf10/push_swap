@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/11 19:24:31 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/13 00:03:49 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,15 +39,15 @@ int	main(int argc, char *argv[])
 		return (1);
 	}
 
-	// lst_assign_indices(push_swap.stack_a);
+	lst_assign_indices(push_swap.stack_a);
 
 	lst_size = ft_lstsize(push_swap.stack_a);
 
 	if (lst_size < 10)
 		key_nbr = 0;
-	else if (lst_size < 100)
+	else if (lst_size <= 100)
 		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 4;
-	else if (lst_size < 500)
+	else if (lst_size <= 500)
 		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 8;
 	else
 		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 16;
@@ -58,8 +58,8 @@ int	main(int argc, char *argv[])
 	// index = lst_get_index(push_swap.stack_a, min);
 	// proximity = ft_lstsize(push_swap.stack_a) / 2;
 
-	for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
-		printf("%2d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
+	// for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
+	// 	printf("%3d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
 
 
 	while (push_swap.stack_a)
@@ -70,7 +70,6 @@ int	main(int argc, char *argv[])
 		else
 		{
 			key_nbr += key_nbr_factor;
-			// ft_putendl_fd("------------------------", 1);
 			continue ;
 		}
 		index = lst_get_index(push_swap.stack_a, min);
@@ -78,14 +77,13 @@ int	main(int argc, char *argv[])
 		while (index != 0)
 		{
 			if (proximity > index)
-					ra(&push_swap.stack_a);
+				ra(&push_swap.stack_a);
 			else
-					rra(&push_swap.stack_a);
-			index = lst_get_index(push_swap.stack_a, min);
-			// if (index == -1)
-			// 	break ;
-			// ft_putnbr_fd(index, 1);
+				rra(&push_swap.stack_a);
+			index--;
 		}
+		if (push_swap.stack_a->pos > key_nbr)
+			ft_putendl_fd("deu ruim", 1);
 		pb(&push_swap.stack_a, &push_swap.stack_b);
 	}
 
@@ -103,10 +101,13 @@ int	main(int argc, char *argv[])
 			else
 				rrb(&push_swap.stack_b);
 			index = lst_get_index(push_swap.stack_b, min);
-			// ft_putnbr_fd(index, 1);
 		}
 		pa(&push_swap.stack_b, &push_swap.stack_a);
 	}
+
+	// for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
+	// 	printf("%3d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
+
 
 	ft_lstclear(&push_swap.stack_a, free);
 
