@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 00:46:56 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 12:19:58 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 //	[X]	Ordenar com 3 elementos
 //	[ ]	while até a pilha b acabar
 //	[X]		Colocar a posição atual de cada nó nas 2 pilhas - current_index
-//	[ ]		Na pilha B colocar o target em cada nó - absolute_target_pos
+//	[X]		Na pilha B colocar o target em cada nó - absolute_target_pos
 //				Colocar o target como o menor index da pilha A do que é maior que o nó respectivo da pilha B
 //				Esse index na pilha A tem uma pos
 //				E é isso que vai para o target no nó na pilha B
@@ -142,6 +142,7 @@ int	main(int argc, char *argv[])
 	// {
 		lst_assign_indices(push_swap.stack_a);
 		lst_assign_indices(push_swap.stack_b);
+		lst_assign_target(push_swap.stack_a, push_swap.stack_b);
 		print_stack(push_swap.stack_a, push_swap.stack_b);
 	// }
 

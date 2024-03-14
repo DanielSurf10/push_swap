@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 00:44:19 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 10:35:58 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,11 +24,11 @@
 
 typedef struct s_list
 {
+	int				sorted_position;
+	int				current_index;
+	int				absolute_target_pos;
 	int				cost_a;
 	int				cost_b;
-	int				current_index;
-	int				sorted_position;
-	int				absolute_target_pos;
 	void			*content;
 	struct s_list	*next;
 }	t_list;
@@ -65,6 +65,7 @@ int		lst_contains(t_list *lst, int num);
 void	lst_assign_sorted_positions(t_list *lst);
 int		lst_is_sorted(t_list *lst);
 void	lst_assign_indices(t_list *lst);
+void	lst_assign_target(t_list *lst_a, t_list *lst_b);
 
 // Utils
 long	ft_atol(const char *str);
