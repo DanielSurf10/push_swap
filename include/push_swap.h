@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 00:11:24 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:44:19 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,8 +62,9 @@ t_list	*lst_min_group(t_list *lst, int until);
 t_list	*lst_max_value(t_list *lst);
 int		lst_get_index(t_list *lst, int num);
 int		lst_contains(t_list *lst, int num);
-void	lst_assign_indices(t_list *lst);
+void	lst_assign_sorted_positions(t_list *lst);
 int		lst_is_sorted(t_list *lst);
+void	lst_assign_indices(t_list *lst);
 
 // Utils
 long	ft_atol(const char *str);
@@ -86,5 +87,10 @@ void	rr(t_list **lst_a, t_list **lst_b);
 void	rra(t_list **lst_a);
 void	rrb(t_list **lst_b);
 void	rrr(t_list **lst_a, t_list **lst_b);
+
+
+// Para apagar
+void	print_stack(t_list *a, t_list *b);
+
 
 #endif

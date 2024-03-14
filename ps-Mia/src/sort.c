@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/26 13:32:10 by mcombeau          #+#    #+#             */
-/*   Updated: 2024/03/13 15:55:31 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:35:19 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ void	print_stack(t_stack **a, t_stack **b)
 	t_stack	*aux;
 	(void)a;
 	// aux = *a;
-	fprintf(stderr, "\n\n");
+	// fprintf(stderr, "\n\n");
 	// fprintf(stderr, "stack a:\n");
 	// fprintf(stderr, "| value | index | pos | target_pos | cost_a | cost_b | next           |\n");
 	// fprintf(stderr, "-----------------------------------------------------------------------\n");

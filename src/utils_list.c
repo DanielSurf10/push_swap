@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 00:14:15 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:45:12 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -164,7 +164,7 @@ int	lst_get_index(t_list *lst, int num)
 	return (i);
 }
 
-void	lst_assign_indices(t_list *lst)
+void	lst_assign_sorted_positions(t_list *lst)
 {
 	int		index;
 	t_list	*min;
@@ -195,4 +195,19 @@ int	lst_is_sorted(t_list *lst)
 		aux = aux->next;
 	}
 	return (1);
+}
+
+void	lst_assign_indices(t_list *lst)
+{
+	int		i;
+	t_list	*aux;
+
+	i = 0;
+	aux = lst;
+	while (aux)
+	{
+		aux->current_index = i;
+		aux = aux->next;
+		i++;
+	}
 }
