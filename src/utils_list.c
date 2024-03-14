@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/12 23:26:31 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:14:15 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,6 +109,8 @@ t_list	*lst_min_group(t_list *lst, int until)
 {
 	if (until == 0)
 		return (lst_min_value(lst));
+	// if (until == 0)
+	// 	return (lst);
 	// while (lst && lst->content == NULL)
 	// 	lst = lst->next;
 	while (lst)
@@ -118,7 +120,7 @@ t_list	*lst_min_group(t_list *lst, int until)
 		// 	node = lst;
 		// 	break ;
 		// }
-		if (lst->pos <= until)
+		if (lst->sorted_position <= until)
 			return (lst);
 		lst = lst->next;
 	}
@@ -130,7 +132,7 @@ t_list	*lst_min_value_greater_than(t_list *lst, int num)
 	t_list	*min;
 	t_list	*aux;
 
-	min = lst_max_value(lst);
+	min = lst_max_value(lst);		// A variável chama min, pq vai retornar o menor valor
 	if (!lst || !min || !min->content || num >= *((int *) min->content))
 		return (NULL);
 	aux = lst;
@@ -171,8 +173,26 @@ void	lst_assign_indices(t_list *lst)
 	min = lst_min_value(lst);
 	while (min)
 	{
-		min->pos = index;
+		min->sorted_position = index;
 		min = lst_min_value_greater_than(lst, *((int *) min->content));
 		index++;
 	}
+}
+
+int	lst_is_sorted(t_list *lst)
+{
+	int		i;
+	t_list	*aux;
+
+	aux = lst;
+	if (aux)
+		i = lst->sorted_position;
+	while (aux)
+	{
+		if (aux->sorted_position != i)
+			return (0);
+		i++;
+		aux = aux->next;
+	}
+	return (1);
 }

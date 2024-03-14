@@ -3,7 +3,8 @@
 import random
 import subprocess
 
-n_values = [100]
+n_values = [3, 5]
+# n_values = [3, 5, 50, 100, 500]
 # n_values = [x for x in range(3, 101) if x == 3 or x == 5 or x % 10 == 0]
 range_start = -500
 range_end = 500
@@ -12,7 +13,7 @@ for n in n_values:
 	outputs = []
 	max_sequence = []
 	min_sequence = []
-	print(f"For n = {n}:")
+	print(f"For n = {n}:", flush=True)
 
 	for _ in range(1000):
 		numbers = random.sample(range(range_start, range_end + 1), n)
@@ -20,6 +21,13 @@ for n in n_values:
 
 		output = subprocess.check_output("./push_swap " + numbers_string, shell=True)
 		output = output.decode()
+
+		checker = subprocess.check_output(f'./push_swap {numbers_string} | ./checker_linux {numbers_string}', shell=True)
+		checker = checker.decode()
+
+		if (checker == "KO\n"):
+			print(f"ko sequence: {numbers_string}")
+			exit()
 
 		num_newlines = output.count('\n')
 		outputs.append(num_newlines)
@@ -41,3 +49,4 @@ for n in n_values:
 	print()
 	print("Minimum Sequence:", *min_sequence)
 	print()
+	print(flush=True)

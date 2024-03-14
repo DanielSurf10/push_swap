@@ -6,11 +6,30 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/13 00:03:49 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 00:10:29 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+//	push para a pilha b até sobrar 3 elementos
+//	ordenar com 3 elementos
+//	while até a pilha b acabar
+//		Colocar a posição atual de cada nó nas 2 pilhas - pos
+//		Na pilha B em cada nó - target
+//			Colocar o target como o menor index da pilha A do que o nó respectivo da pilha B
+//			Esse index na pilha A tem uma pos
+//			E é isso que vai para o target no nó na pilha B
+//		Calcular o cost
+//			cost_a
+//				É o target, só que ele pode ir pra cima (positivo) ou para baixo (negativo), em relação ao meio da pilha
+//			cost_b
+//				É a pos, só que ele pode ir pra cima (positivo) ou para baixo (negativo), em relação ao meio da pilha
+//		Calcular o movimento com o menor custo
+//			Ver qual é a menor soma entre cos_a e cos_b
+//			Esse vai ser o movimento
+//	acabou o while
+//	Rotate ou rev rotate até estar totalmente ordenado
 
 int	main(int argc, char *argv[])
 {
@@ -25,6 +44,7 @@ int	main(int argc, char *argv[])
 	int		key_nbr;
 	int		key_nbr_factor;
 	int		lst_size;
+	t_list	*max;
 	t_list	*node;
 	t_list	*node_b;
 
@@ -42,9 +62,10 @@ int	main(int argc, char *argv[])
 	lst_assign_indices(push_swap.stack_a);
 
 	lst_size = ft_lstsize(push_swap.stack_a);
+	max = lst_max_value(push_swap.stack_a);
 
 	if (lst_size < 10)
-		key_nbr = 0;
+		key_nbr_factor = 0;
 	else if (lst_size <= 100)
 		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 4;
 	else if (lst_size <= 500)
@@ -52,17 +73,8 @@ int	main(int argc, char *argv[])
 	else
 		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 16;
 	key_nbr = key_nbr_factor;
-	// node = lst_min_group(push_swap.stack_a, key_nbr);
-	// if (node)
-	// 	min = *((int *)node->content);
-	// index = lst_get_index(push_swap.stack_a, min);
-	// proximity = ft_lstsize(push_swap.stack_a) / 2;
 
-	// for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
-	// 	printf("%3d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
-
-
-	while (push_swap.stack_a)
+	while (push_swap.stack_a && !(lst_is_sorted(push_swap.stack_a) && ft_lstlast(push_swap.stack_a) == max))
 	{
 		node = lst_min_group(push_swap.stack_a, key_nbr);
 		if (node)
@@ -80,11 +92,25 @@ int	main(int argc, char *argv[])
 				ra(&push_swap.stack_a);
 			else
 				rra(&push_swap.stack_a);
-			index--;
+			index = lst_get_index(push_swap.stack_a, min);
 		}
-		if (push_swap.stack_a->pos > key_nbr)
-			ft_putendl_fd("deu ruim", 1);
 		pb(&push_swap.stack_a, &push_swap.stack_b);
+		lst_size--;
+	}
+
+	if (push_swap.stack_a && lst_is_sorted(push_swap.stack_a) == 0)
+	{
+		if (lst_size == 2)
+			sa(&push_swap.stack_a);
+		else if (lst_size == 3)
+		{
+			if (push_swap.stack_a == lst_max_value(push_swap.stack_a))		// Se o primeiro elemento for o maior dos 3
+				ra(&push_swap.stack_a);
+			else if (push_swap.stack_a->next == lst_max_value(push_swap.stack_a->next))		// Se o segundo elemento for o maior dos 3
+				rra(&push_swap.stack_a);
+			if (push_swap.stack_a->sorted_position > push_swap.stack_a->next->sorted_position)		// Se o segundo elementos for maior que o primeiro
+				sa(&push_swap.stack_a);
+		}
 	}
 
 	while (push_swap.stack_b)
@@ -104,10 +130,6 @@ int	main(int argc, char *argv[])
 		}
 		pa(&push_swap.stack_b, &push_swap.stack_a);
 	}
-
-	// for (int i = 0; i < ft_lstsize(push_swap.stack_a); i++)
-	// 	printf("%3d - %d\n", lst_index(push_swap.stack_a, i)->pos, *((int *)lst_index(push_swap.stack_a, i)->content));
-
 
 	ft_lstclear(&push_swap.stack_a, free);
 
