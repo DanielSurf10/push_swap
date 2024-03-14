@@ -6,7 +6,7 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 15:54:27 by danbarbo          #+#    #+#              #
-#    Updated: 2024/03/14 15:24:15 by danbarbo         ###   ########.fr        #
+#    Updated: 2024/03/14 19:01:55 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,12 +51,12 @@ libft:
 
 clean:
 	@rm -rf obj
-#	@make -C ${LIBFT} clean
+	@make -C ${LIBFT} clean
 
 fclean: clean
 	@rm -f ${NAME}
 	@rm -f ${NAME_B}
-#	@make -C ${LIBFT} clean
+	@make -C ${LIBFT} clean
 
 re: fclean all
 re_bonus: fclean bonus

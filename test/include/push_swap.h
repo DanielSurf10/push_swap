@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 16:16:58 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 19:02:39 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 // Utils list
 t_list	*create_node(int num);
 t_list	*lst_get_node(t_list *lst, int index);
-// t_list	*lst_rev_index(t_list *lst, int index);
 t_list	*lst_get_min_value(t_list *lst);
 t_list	*lst_get_first_below(t_list *lst, int max_value);
 t_list	*lst_get_max_value(t_list *lst);
@@ -63,9 +62,9 @@ int		lst_get_index(t_list *lst, t_list *node);
 int		lst_contains(t_list *lst, int num);
 void	assign_sorted_positions(t_list *lst);
 int		is_list_sorted(t_list *lst);
-void	lst_assign_indices(t_list *lst);
+void	assign_current_indices(t_list *lst);
 void	lst_assign_cost(t_list *lst_a, t_list *lst_b);
-void	do_cheapest_move(t_list **lst_a, t_list **lst_b);
+void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b);
 
 // Utils
 long	ft_atol(const char *str);

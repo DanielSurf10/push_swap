@@ -2,21 +2,24 @@
 
 import random
 import subprocess
+import sys
 
 # n_values = [3, 5]
-# n_values = [3, 5, 50, 100]
-n_values = range(11)
+n_values = [3, 5, 50, 100, 500]
+# n_values = range(11)
 # n_values = [x for x in range(3, 101) if x == 3 or x == 5 or x % 10 == 0]
 range_start = -500
-range_end = 500
+range_end = 0
 
 for n in n_values:
 	outputs = []
 	max_sequence = []
 	min_sequence = []
 	print(f"For n = {n}:", flush=True)
+	print(f"\n\nFor n = {n}:\n", file=sys.stderr, flush=True)
 
 	for _ in range(1000):
+		print(".", end="", flush=True, file=sys.stderr)
 		numbers = random.sample(range(range_start, range_end + 1), n)
 		numbers_string = ' '.join(map(str, numbers))
 
