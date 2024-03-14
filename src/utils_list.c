@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 12:21:39 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:14:50 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,18 +230,28 @@ t_list	*lst_min_sorted_position_greater_than(t_list *lst, int num)
 	return (min);
 }
 
-void	lst_assign_target(t_list *lst_a, t_list *lst_b)
+void	lst_assign_cost(t_list *lst_a, t_list *lst_b)
 {
+	int		lst_a_size;
+	int		lst_b_size;
 	t_list	*aux;
 	t_list	*min_greather_than;
 
+	lst_a_size = ft_lstsize(lst_a);
+	lst_b_size = ft_lstsize(lst_b);
 	aux = lst_b;
 	min_greather_than = lst_b;
 	while (aux)
 	{
 		min_greather_than = lst_min_sorted_position_greater_than(lst_a, aux->sorted_position);
-		aux->absolute_target_pos = min_greather_than->current_index;
+		if (min_greather_than->current_index > lst_a_size / 2)
+			aux->cost_a = -(lst_a_size - min_greather_than->current_index);
+		else
+			aux->cost_a = min_greather_than->current_index;
+		if (aux->current_index > lst_b_size / 2)
+			aux->cost_b = -(lst_b_size - aux->current_index);
+		else
+			aux->cost_b = aux->current_index;
 		aux = aux->next;
 	}
-
 }
