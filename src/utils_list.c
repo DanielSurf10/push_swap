@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 13:14:50 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:06:56 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -245,13 +245,75 @@ void	lst_assign_cost(t_list *lst_a, t_list *lst_b)
 	{
 		min_greather_than = lst_min_sorted_position_greater_than(lst_a, aux->sorted_position);
 		if (min_greather_than->current_index > lst_a_size / 2)
-			aux->cost_a = -(lst_a_size - min_greather_than->current_index);
+			aux->cost_a = min_greather_than->current_index - lst_a_size;
 		else
 			aux->cost_a = min_greather_than->current_index;
 		if (aux->current_index > lst_b_size / 2)
-			aux->cost_b = -(lst_b_size - aux->current_index);
+			aux->cost_b = aux->current_index - lst_b_size;
 		else
 			aux->cost_b = aux->current_index;
 		aux = aux->next;
 	}
+}
+
+void	do_cheapest_move(t_list **lst_a, t_list **lst_b)
+{
+	int		cheapest_move;
+	t_list	*aux;
+	t_list	*cheapest_node;
+
+	aux = *lst_b;
+	cheapest_node = *lst_b;
+	cheapest_move = ft_abs(aux->cost_a) + ft_abs(aux->cost_b);
+	while (aux)
+	{
+		if (ft_abs(aux->cost_a) + ft_abs(aux->cost_b) < cheapest_move)
+		{
+			cheapest_node = aux;
+			cheapest_move = ft_abs(aux->cost_a) + ft_abs(aux->cost_b);
+		}
+		aux = aux->next;
+	}
+
+	while (cheapest_node->cost_a > 0 && cheapest_node->cost_b > 0)
+	{
+		rr(lst_a, lst_b);
+		cheapest_node->cost_a--;
+		cheapest_node->cost_b--;
+	}
+
+	while (cheapest_node->cost_a < 0 && cheapest_node->cost_b < 0)
+	{
+		rrr(lst_a, lst_b);
+		cheapest_node->cost_a++;
+		cheapest_node->cost_b++;
+	}
+
+	while (cheapest_node->cost_a != 0)
+	{
+		if (cheapest_node->cost_a > 0)
+		{
+			ra(lst_a);
+			cheapest_node->cost_a--;
+		}
+		else
+		{
+			rra(lst_a);
+			cheapest_node->cost_a++;
+		}
+	}
+	while (cheapest_node->cost_b != 0)
+	{
+		if (cheapest_node->cost_b > 0)
+		{
+			rb(lst_b);
+			cheapest_node->cost_b--;
+		}
+		else
+		{
+			rrb(lst_b);
+			cheapest_node->cost_b++;
+		}
+	}
+	pa(lst_b, lst_a);
 }

@@ -1,0 +1,222 @@
+For n = 0:
+Average: 0.0
+Maximum: 0
+Minimum: 0
+
+Maximum Sequence:
+
+Minimum Sequence:
+
+
+For n = 1:
+Average: 0.0
+Maximum: 0
+Minimum: 0
+
+Maximum Sequence: 257
+
+Minimum Sequence: 257
+
+
+For n = 2:
+Average: 0.517
+Maximum: 1
+Minimum: 0
+
+Maximum Sequence: 495 -386
+
+Minimum Sequence: -455 -369
+
+
+For n = 3:
+Average: 1.169
+Maximum: 2
+Minimum: 0
+
+Maximum Sequence: -297 158 -59
+
+Minimum Sequence: -24 358 468
+
+
+For n = 4:
+Average: 4.69
+Maximum: 8
+Minimum: 0
+
+Maximum Sequence: 338 -123 -178 -390
+
+Minimum Sequence: -462 -452 -403 267
+
+
+For n = 5:
+Average: 8.127
+Maximum: 12
+Minimum: 0
+
+Maximum Sequence: 294 230 -336 -273 -362
+
+Minimum Sequence: 6 26 60 83 104
+
+
+For n = 6:
+Average: 11.663
+Maximum: 16
+Minimum: 0
+
+Maximum Sequence: 463 -147 177 -30 -460 -356
+
+Minimum Sequence: -119 153 171 181 303 349
+
+
+For n = 7:
+Average: 16.281
+Maximum: 22
+Minimum: 0
+
+Maximum Sequence: 56 150 52 -227 8 -410 -339
+
+Minimum Sequence: -303 93 116 149 310 360 367
+
+
+For n = 8:
+Average: 19.945
+Maximum: 27
+Minimum: 12
+
+Maximum Sequence: 326 368 -283 -71 -198 292 95 -110
+
+Minimum Sequence: 351 -198 9 372 136 161 173 252
+
+
+For n = 9:
+Average: 24.419
+Maximum: 32
+Minimum: 17
+
+Maximum Sequence: -99 443 237 182 216 -419 -293 -9 -329
+
+Minimum Sequence: -366 -168 -455 -408 78 220 479 249 380
+
+
+For n = 10:
+Average: 28.301
+Maximum: 37
+Minimum: 18
+
+Maximum Sequence: 341 293 -59 262 424 297 50 284 164 60
+
+Minimum Sequence: -495 18 221 290 -424 -310 -303 -150 -25 435
+
+
+----------------------------------------------------------------
+
+For n = 0:
+Average: 0.0
+Maximum: 0
+Minimum: 0
+
+Maximum Sequence:
+
+Minimum Sequence:
+
+
+For n = 1:
+Average: 0.0
+Maximum: 0
+Minimum: 0
+
+Maximum Sequence: 325
+
+Minimum Sequence: 325
+
+
+For n = 2:
+Average: 0.489
+Maximum: 1
+Minimum: 0
+
+Maximum Sequence: -59 -136
+
+Minimum Sequence: -442 -87
+
+
+For n = 3:
+Average: 1.161
+Maximum: 2
+Minimum: 0
+
+Maximum Sequence: 438 -103 -473
+
+Minimum Sequence: -217 67 431
+
+
+For n = 4:
+Average: 4.165
+Maximum: 6
+Minimum: 0
+
+Maximum Sequence: -268 -293 -337 445
+
+Minimum Sequence: -488 198 489 493
+
+
+For n = 5:
+Average: 7.576
+Maximum: 11
+Minimum: 0
+
+Maximum Sequence: -413 440 -462 286 -308
+
+Minimum Sequence: -335 -144 22 199 319
+
+
+For n = 6:
+Average: 11.047
+Maximum: 16
+Minimum: 0
+
+Maximum Sequence: -432 75 35 -468 10 253
+
+Minimum Sequence: -192 134 347 356 371 432
+
+
+For n = 7:
+Average: 14.911
+Maximum: 22
+Minimum: 9
+
+Maximum Sequence: -436 125 470 -460 -194 380 233
+
+Minimum Sequence: -247 -82 495 -68 135 225 364
+
+
+For n = 8:
+Average: 18.928
+Maximum: 27
+Minimum: 13
+
+Maximum Sequence: -409 234 228 -342 -472 -51 437 -205
+
+Minimum Sequence: -473 270 -458 -214 112 309 269 289
+
+
+For n = 9:
+Average: 23.395
+Maximum: 34
+Minimum: 15
+
+Maximum Sequence: -287 -55 51 -323 -459 -285 161 90 -341
+
+Minimum Sequence: -474 363 -369 -188 415 -64 438 -34 272
+
+
+For n = 10:
+Average: 28.367
+Maximum: 39
+Minimum: 18
+
+Maximum Sequence: 132 -403 89 341 274 369 -221 340 169 -357
+
+Minimum Sequence: -443 -35 -419 -367 -347 62 446 195 211 -315
+
+

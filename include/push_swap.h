@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 13:08:50 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:49:11 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,11 @@ void	lst_assign_sorted_positions(t_list *lst);
 int		lst_is_sorted(t_list *lst);
 void	lst_assign_indices(t_list *lst);
 void	lst_assign_cost(t_list *lst_a, t_list *lst_b);
+void	do_cheapest_move(t_list **lst_a, t_list **lst_b);
 
 // Utils
 long	ft_atol(const char *str);
+int		ft_abs(int num);
 
 // Push
 void	pa(t_list **lst_b, t_list **lst_a);

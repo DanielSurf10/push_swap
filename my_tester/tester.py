@@ -3,8 +3,9 @@
 import random
 import subprocess
 
-n_values = [3, 5]
-# n_values = [3, 5, 50, 100, 500]
+# n_values = [3, 5]
+# n_values = [3, 5, 50, 100]
+n_values = range(11)
 # n_values = [x for x in range(3, 101) if x == 3 or x == 5 or x % 10 == 0]
 range_start = -500
 range_end = 500

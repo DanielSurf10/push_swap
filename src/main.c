@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 13:14:30 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 15:20:47 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,29 +19,27 @@
 //	[X] Colocar o sorted_position em cada nó na pilha A
 //	[X]	Fazer push para a pilha b até sobrar 3 elementos
 //	[X]	Ordenar com 3 elementos
-//	[ ]	while até a pilha b acabar
+//	[X]	while até a pilha b acabar
 //	[X]		Colocar a posição atual de cada nó nas 2 pilhas - current_index
 //	[X]		Na pilha B colocar o target em cada nó - absolute_target_pos
 //				Colocar o target como o menor index da pilha A do que é maior que o nó respectivo da pilha B
 //				Esse index na pilha A tem uma pos
 //				E é isso que vai para o target no nó na pilha B
-//	[-]		Calcular o cost
+//	[X]		Calcular o cost
 //				cost_a
 //					É o target, só que ele pode ir pra cima (positivo) ou para baixo (negativo), em relação ao meio da pilha
 //				cost_b
 //					É a pos, só que ele pode ir pra cima (positivo) ou para baixo (negativo), em relação ao meio da pilha
-//	[ ]		Calcular o movimento com o menor custo
+//	[X]		Calcular o movimento com o menor custo
 //				Ver qual é a menor soma entre cos_a e cos_b
 //				Esse vai ser o movimento
 //	Acabou o while
-//	[ ]	Rotate ou rev rotate até estar totalmente ordenado
+//	[X]	Rotate ou rev rotate até estar totalmente ordenado
 
 int	main(int argc, char *argv[])
 {
 	t_push_swap	push_swap;
 
-	int		proximity;
-	int		proximity_b;
 	int		min;
 	int		max_b;
 	int		index;
@@ -49,6 +47,7 @@ int	main(int argc, char *argv[])
 	int		key_nbr;
 	int		key_nbr_factor;
 	int		lst_size;
+	int		moves_to_sort;
 	t_list	*max;
 	t_list	*node;
 	t_list	*node_b;
@@ -66,17 +65,25 @@ int	main(int argc, char *argv[])
 
 	lst_assign_sorted_positions(push_swap.stack_a);
 
+	if (lst_is_sorted(push_swap.stack_a))
+	{
+		ft_lstclear(&push_swap.stack_a, free);
+		return (0);
+	}
+
 	lst_size = ft_lstsize(push_swap.stack_a);
 	max = lst_max_value(push_swap.stack_a);
 
-	if (lst_size < 10)
-		key_nbr_factor = 0;
-	else if (lst_size <= 100)
-		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 4;
-	else if (lst_size <= 500)
-		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 8;
-	else
-		key_nbr_factor = ft_lstsize(push_swap.stack_a) / 16;
+	// if (lst_size < 10)
+	// 	key_nbr_factor = 0;
+	// else if (lst_size <= 100)
+	// 	key_nbr_factor = ft_lstsize(push_swap.stack_a) / 4;
+	// else if (lst_size <= 500)
+	// 	key_nbr_factor = ft_lstsize(push_swap.stack_a) / 8;
+	// else
+	// 	key_nbr_factor = ft_lstsize(push_swap.stack_a) / 16;
+	// else
+	key_nbr_factor = ft_lstsize(push_swap.stack_a) / 2;
 	key_nbr = key_nbr_factor;
 
 	while (lst_size > 3)
@@ -90,14 +97,20 @@ int	main(int argc, char *argv[])
 			continue ;
 		}
 		index = lst_get_index(push_swap.stack_a, min);
-		proximity = ft_lstsize(push_swap.stack_a) / 2;
+		if (index > lst_size / 2)
+			index = index - lst_size;
 		while (index != 0)
 		{
-			if (proximity > index)
+			if (index > 0)
+			{
 				ra(&push_swap.stack_a);
+				index--;
+			}
 			else
+			{
 				rra(&push_swap.stack_a);
-			index = lst_get_index(push_swap.stack_a, min);
+				index++;
+			}
 		}
 		pb(&push_swap.stack_a, &push_swap.stack_b);
 		lst_size--;
@@ -138,13 +151,35 @@ int	main(int argc, char *argv[])
 
 	lst_size = ft_lstsize(push_swap.stack_b);
 
-	// while (lst_size > 3)
-	// {
+	while (lst_size > 0)
+	{
 		lst_assign_indices(push_swap.stack_a);
 		lst_assign_indices(push_swap.stack_b);
 		lst_assign_cost(push_swap.stack_a, push_swap.stack_b);
-		print_stack(push_swap.stack_a, push_swap.stack_b);
-	// }
+		// print_stack(push_swap.stack_a, push_swap.stack_b);
+		do_cheapest_move(&push_swap.stack_a, &push_swap.stack_b);
+		lst_size--;
+	}
+
+	moves_to_sort = lst_get_index(push_swap.stack_a, *((int *)lst_min_value(push_swap.stack_a)->content));
+	lst_size = ft_lstsize(push_swap.stack_a);
+
+	if (moves_to_sort > lst_size / 2)
+		moves_to_sort = -(lst_size - moves_to_sort);
+
+	while (moves_to_sort != 0)
+	{
+		if (moves_to_sort > 0)
+		{
+			ra(&push_swap.stack_a);
+			moves_to_sort--;
+		}
+		else
+		{
+			rra(&push_swap.stack_a);
+			moves_to_sort++;
+		}
+	}
 
 
 	ft_lstclear(&push_swap.stack_a, free);

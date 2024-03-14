@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 17:07:56 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/08 17:19:32 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 13:40:09 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,11 @@ long	ft_atol(const char *str)
 		i++;
 	}
 	return (num * signal);
+}
+
+int	ft_abs(int num)
+{
+	if (num < 0)
+		return (-num);
+	return (num);
 }
