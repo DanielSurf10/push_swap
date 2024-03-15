@@ -18,15 +18,15 @@ for n in n_values:
 	print(f"For n = {n}:", flush=True)
 	print(f"\n\nFor n = {n}:\n", file=sys.stderr, flush=True)
 
-	for _ in range(1000):
+	for _ in range(100):
 		print(".", end="", flush=True, file=sys.stderr)
 		numbers = random.sample(range(range_start, range_end + 1), n)
 		numbers_string = ' '.join(map(str, numbers))
 
-		output = subprocess.check_output("./push_swap " + numbers_string, shell=True)
+		output = subprocess.check_output("valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all ./push_swap " + numbers_string, shell=True)
 		output = output.decode()
 
-		checker = subprocess.check_output(f'./push_swap {numbers_string} | ./checker_linux {numbers_string}', shell=True)
+		checker = subprocess.check_output(f'./push_swap {numbers_string} | valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all ./checker {numbers_string}', shell=True)
 		checker = checker.decode()
 
 		if (checker == "KO\n"):

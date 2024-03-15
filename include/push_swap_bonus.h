@@ -1,26 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
+/*   push_swap_bonus.h                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/15 11:54:38 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:18:54 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PUSH_SWAP_H
-# define PUSH_SWAP_H
+#ifndef PUSH_SWAP_BONUS_H
+# define PUSH_SWAP_BONUS_H
 
 //****************************************************************************//
 //                                  Includes                                  //
 //****************************************************************************//
 
-# include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
 # include "libft.h"
+
+//****************************************************************************//
+//                                  Defines                                   //
+//****************************************************************************//
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 4096
+# endif
+
+//****************************************************************************//
+//                                   Enums                                    //
+//****************************************************************************//
+
+enum e_status
+{
+	FAIL = -1,
+	READ,
+	BUILD_STRING,
+	FINISH
+};
 
 //****************************************************************************//
 //                                  Structs                                   //
@@ -32,20 +51,11 @@
  *
  * The `t_list` structure represents a node in a linked list.
  *
- * `cost_a` is the number of movements that stack A needs to make for the node
- *	 to be sorted.
- * `cost_b` is the number of movements that stack B needs to make for the node
- *	 to reach the top.
- * `current_index` is the current index for each time `cost_a` and `cost_b` are
- *	 calculated.
  * `sorted_position` is the position that the node should be if sorted.
  * `next` is a pointer to the next node in the list.
  */
 typedef struct s_list
 {
-	int				cost_a;
-	int				cost_b;
-	int				current_index;
 	int				sorted_position;
 	void			*content;
 	struct s_list	*next;
@@ -60,15 +70,21 @@ typedef struct s_list
  */
 typedef struct s_push_swap
 {
-	int		index;
-	int		key_nbr;
-	int		key_nbr_factor;
-	int		lst_size;
-	int		moves_to_sort;
-	t_list	*node;
 	t_list	*stack_a;
 	t_list	*stack_b;
 }	t_push_swap;
+
+/**
+ * @brief Structure representing a node in a linked list for Get Next Line.
+ *
+ * This structure contains a character representing the content of the node,
+ * and a pointer to the next node in the linked list.
+ */
+typedef struct s_list_gnl
+{
+	char				content;
+	struct s_list_gnl	*next;
+}	t_list_gnl;
 
 //****************************************************************************//
 //                               Main functions                               //
@@ -87,41 +103,25 @@ typedef struct s_push_swap
  */
 t_list	*make_stack(int argc, char *argv[]);
 
-//****************************************************************************//
-//                             Sorting functions                              //
-//****************************************************************************//
+/**
+ * @brief Reads the next line from a file descriptor.
+ *
+ * This function reads the next line from the file descriptor specified by `fd`.
+ * It uses a static variable `line` to keep track of the current line being
+ * read.
+ *
+ * @param fd The file descriptor to read from.
+ * @return A pointer to the next line read from the file descriptor,
+ *         or NULL if an error occurs or the end of file is reached.
+ */
+char	*get_next_line(int fd);
 
 /**
- * @brief Sorts a list of 3 elements in ascending order.
+ * @brief Executes the sorting instructions based on the input lines.
  *
- * @param push_swap The push_swap struct containing the list to be sorted.
+ * @param push_swap The push_swap struct containing the stacks.
  */
-void	sort_3_elements(t_push_swap *push_swap);
-
-/**
- * @brief Rotate the stack until it is sorted.
- *
- * @param push_swap The push_swap struct containing the stack and other
- *                  variables.
- */
-void	rotate_until_sorted(t_push_swap *push_swap);
-
-/**
- * @brief Sorts the elements in the push_swap structure using a
- *        custom algorithm.
- *
- * @param push_swap A pointer to the push_swap structure.
- */
-void	sort(t_push_swap *push_swap);
-
-/**
- * @brief Pushes nodes from stack A to stack B until the size of stack A is
- *        greater than 3.
- *
- * @param push_swap The push_swap struct containing the stacks and other
- *                  variables.
- */
-void	puts_nodes_to_b(t_push_swap *push_swap);
+int		execute_sorting_instructions(t_push_swap *push_swap);
 
 //****************************************************************************//
 //                         Linked lists manipulation                          //
@@ -318,6 +318,25 @@ int		ft_abs(int num);
  * @return The long integer.
  */
 long	ft_atol(const char *str);
+
+/**
+ * @brief Adds a new node to the end of a linked list.
+ *
+ * @param lst The address of a pointer to the head of the linked list.
+ * @param c The content to be added to the new node.
+ * @return 0 if the new node is successfully added, FAIL otherwise.
+ */
+int		ft_gnl_lstadd_back(t_list_gnl **lst, char c);
+
+/**
+ * @brief Clears a linked list of type t_list_gnl.
+ *
+ * This function frees the memory allocated for each node in the linked list
+ * and sets the list pointer to NULL.
+ *
+ * @param lst A pointer to a pointer to the head of the linked list.
+ */
+void	ft_gnl_lstclear(t_list_gnl **lst);
 
 //****************************************************************************//
 //                             Movement functions                             //

@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/14 23:16:04 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 23:54:27 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 11:54:38 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ static void	rotate(t_list **stack_a, int index)
 		rra(stack_a);
 }
 
-void	pust_nodes_to_b(t_push_swap *push_swap)
+void	puts_nodes_to_b(t_push_swap *push_swap)
 {
 	while (push_swap->lst_size > 3)
 	{

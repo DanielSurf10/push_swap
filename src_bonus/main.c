@@ -6,11 +6,11 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/15 11:54:38 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 13:09:43 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 static void	init(t_push_swap *push_swap, int argc, char **argv)
 {
@@ -22,17 +22,6 @@ static void	init(t_push_swap *push_swap, int argc, char **argv)
 		exit(1);
 	}
 	assign_sorted_positions(push_swap->stack_a);
-	if (is_list_sorted(push_swap->stack_a))
-	{
-		ft_lstclear(&push_swap->stack_a, free);
-		exit(0);
-	}
-	push_swap->lst_size = ft_lstsize(push_swap->stack_a);
-	if (push_swap->lst_size > 400)
-		push_swap->key_nbr_factor = push_swap->lst_size / 4;
-	else
-		push_swap->key_nbr_factor = push_swap->lst_size / 2;
-	push_swap->key_nbr = push_swap->key_nbr_factor;
 }
 
 int	main(int argc, char *argv[])
@@ -42,10 +31,14 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 	init(&push_swap, argc, argv);
-	puts_nodes_to_b(&push_swap);
-	sort_3_elements(&push_swap);
-	sort(&push_swap);
-	rotate_until_sorted(&push_swap);
+	if (execute_sorting_instructions(&push_swap) == 0)
+	{
+		if (is_list_sorted(push_swap.stack_a) && push_swap.stack_b == NULL)
+			write(1, "OK\n", 3);
+		else
+			write(1, "KO\n", 3);
+	}
 	ft_lstclear(&push_swap.stack_a, free);
+	ft_lstclear(&push_swap.stack_b, free);
 	return (0);
 }

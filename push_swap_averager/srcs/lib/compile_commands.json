@@ -1,0 +1,128 @@
+[
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "ft_free_arr.c",
+   "-o",
+   "objs/ft_free_arr.o"
+  ],
+  "file": "ft_free_arr.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "build_cmdstr500.c",
+   "-o",
+   "objs/build_cmdstr500.o"
+  ],
+  "file": "build_cmdstr500.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "init_table2.c",
+   "-o",
+   "objs/init_table2.o"
+  ],
+  "file": "init_table2.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "init_table.c",
+   "-o",
+   "objs/init_table.o"
+  ],
+  "file": "init_table.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "mersenne_twister_algorithm.c",
+   "-o",
+   "objs/mersenne_twister_algorithm.o"
+  ],
+  "file": "mersenne_twister_algorithm.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "build_cmdstr.c",
+   "-o",
+   "objs/build_cmdstr.o"
+  ],
+  "file": "build_cmdstr.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "memtest.c",
+   "-o",
+   "objs/memtest.o"
+  ],
+  "file": "memtest.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "exaustive_test20.c",
+   "-o",
+   "objs/exaustive_test20.o"
+  ],
+  "file": "exaustive_test20.c"
+ },
+ {
+  "directory": "/home/myuser/push_swap/push_swap_averager/srcs/lib",
+  "arguments": [
+   "cc",
+   "-w",
+   "-O3",
+   "-I../include/",
+   "-c",
+   "utils.c",
+   "-o",
+   "objs/utils.o"
+  ],
+  "file": "utils.c"
+ }
+]
