@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:38:06 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/15 00:07:27 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 10:04:25 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,12 +142,43 @@ int		lst_contains(t_list *lst, int num);
  */
 int		lst_get_index(t_list *lst, t_list *node);
 
+/**
+ * @brief Adds the element 'new' at the beginning of the linked list 'lst'.
+ *
+ * @param lst A pointer to the pointer to the first node of the list.
+ * @param new The node to be added at the beginning of the list.
+ */
+
 void	ft_lstadd_front(t_list **lst, t_list *new);
 
+/**
+ * @brief Adds the element 'new' at the end of the linked list 'lst'.
+ *
+ * @param lst The address of a pointer to the first element of a linked list.
+ * @param new The element to add at the end of the linked list.
+ */
 void	ft_lstadd_back(t_list **lst, t_list *new);
 
+/**
+ * @brief Deletes a single node from a linked list.
+ *
+ * @param lst The node to be deleted.
+ * @param del The function used to delete the content of the node.
+ */
 void	ft_lstdelone(t_list *lst, void (*del)(void*));
 
+/**
+ * @brief Clears a linked list and frees the memory of each node using the
+ *        provided function.
+ *
+ * This function clears a linked list by iterating through each node and
+ * applying the provided function `del` to free the memory allocated for
+ * the content of each node. After clearing the list, the pointer to the
+ * list (`lst`) will be set to NULL.
+ *
+ * @param lst A pointer to a pointer to the first node of the linked list.
+ * @param del The function used to delete the content of each node.
+ */
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 
 /**
@@ -158,8 +189,20 @@ void	ft_lstclear(t_list **lst, void (*del)(void*));
  */
 t_list	*create_node(int num);
 
+/**
+ * @brief Creates a new linked list node with the specified content.
+ *
+ * @param content The content to be stored in the new node.
+ * @return A pointer to the newly created node.
+ */
 t_list	*ft_lstnew(void *content);
 
+/**
+ * @brief Returns the last element of a linked list.
+ *
+ * @param lst The head of the linked list.
+ * @return The last element of the linked list, or NULL if the list is empty.
+ */
 t_list	*ft_lstlast(t_list *lst);
 
 /**
@@ -256,18 +299,18 @@ void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b);
 //****************************************************************************//
 
 /**
- * @brief Converts a string to a long integer.
- *
- * @param str The string to be converted.
- * @return The long integer.
- */
-int		ft_abs(int num);
-
-/**
  * @brief Gets the absolute value of a number.
  *
  * @param num The number to be converted.
  * @return The integer.
+ */
+int		ft_abs(int num);
+
+/**
+ * @brief Converts a string to a long integer.
+ *
+ * @param str The string to be converted.
+ * @return The long integer.
  */
 long	ft_atol(const char *str);
 

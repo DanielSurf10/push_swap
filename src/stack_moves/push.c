@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:55:00 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 22:38:03 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:50:11 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 /**
  * @brief Moves the top element from lst_a to lst_b.
  *
- * @param lst_a The pointer to the first stack.
- * @param lst_b The pointer to the second stack.
+ * @param lst_a The pointer to the stack that will give a node.
+ * @param lst_b The pointer to the stack that will receive a node.
  */
 static void	lst_push(t_list **lst_a, t_list **lst_b)
 {

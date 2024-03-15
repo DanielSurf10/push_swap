@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/07 00:39:36 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 23:51:24 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 09:42:55 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,10 @@ static void	init(t_push_swap *push_swap, int argc, char **argv)
 		exit(0);
 	}
 	push_swap->lst_size = ft_lstsize(push_swap->stack_a);
-	push_swap->key_nbr_factor = push_swap->lst_size / 2;
 	if (push_swap->lst_size > 400)
-		push_swap->key_nbr_factor = ft_lstsize(push_swap->stack_a) / 4;
+		push_swap->key_nbr_factor = push_swap->lst_size / 4;
+	else
+		push_swap->key_nbr_factor = push_swap->lst_size / 2;
 	push_swap->key_nbr = push_swap->key_nbr_factor;
 }
 

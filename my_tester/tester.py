@@ -18,7 +18,7 @@ for n in n_values:
 	print(f"For n = {n}:", flush=True)
 	print(f"\n\nFor n = {n}:\n", file=sys.stderr, flush=True)
 
-	for _ in range(10):
+	for _ in range(1000):
 		print(".", end="", flush=True, file=sys.stderr)
 		numbers = random.sample(range(range_start, range_end + 1), n)
 		numbers_string = ' '.join(map(str, numbers))
