@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 10:56:26 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 19:50:48 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:48:37 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,34 +29,6 @@ t_list	*lst_get_first_below(t_list *lst, int max_pos)
 		lst = lst->next;
 	}
 	return (NULL);
-}
-
-/**
- * @brief Gets the smallest value that is greater than the given position.
- *
- * @param lst The list to search in.
- * @return The node with the minimum sorted position in the list.
- */
-t_list	*get_smallest_value_greater_than(t_list *lst, t_list *node)
-{
-	int		num;
-	t_list	*min;
-	t_list	*aux;
-
-	num = *((int *) node->content);
-	min = lst_get_max_value(lst);
-	if (!lst || !min || !min->content || num >= *((int *) min->content))
-		return (NULL);
-	aux = lst;
-	while (aux)
-	{
-		if (aux->content && min->content)
-			if (*((int *) aux->content) > num
-				&& *((int *) aux->content) < *((int *) min->content))
-				min = aux;
-		aux = aux->next;
-	}
-	return (min);
 }
 
 /**

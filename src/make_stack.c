@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:25:12 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/14 21:25:36 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/14 22:11:44 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,17 +61,6 @@ static int	already_exists(t_list **lst, char *str_num)
 	return (0);
 }
 
-/**
- * @brief Create a stack object with the given arguments
- *
- * This function creates a stack object based on the provided command-line
- * arguments. The stack is represented as a linked list using the t_list
- * structure.
- *
- * @param argc The number of arguments
- * @param argv The arguments
- * @return t_list* A pointer to the created stack object
- */
 t_list	*make_stack(int argc, char *argv[])
 {
 	int		iter_split;

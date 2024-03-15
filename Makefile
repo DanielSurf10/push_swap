@@ -6,35 +6,36 @@
 #    By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/12/27 15:54:27 by danbarbo          #+#    #+#              #
-#    Updated: 2024/03/14 15:24:15 by danbarbo         ###   ########.fr        #
+#    Updated: 2024/03/14 21:27:22 by danbarbo         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	:= push_swap
-NAME_B	:= checker
-CFLAGS	:= -Wextra -Wall -Werror -g3
+NAME		:= push_swap
+NAME_BONUS	:= checker
+CFLAGS		:= -Wextra -Wall -Werror -g3
 # CFLAGS	:= -g3
-LIBFT	:= lib/libft
 
-HEADERS	:= -I ./include \
-			-I ${LIBFT}/include
+LIBFT_DIR	:= lib/libft
+LIBFT		:= ${LIBFT_DIR}/libft.a
+LIBS		:= ${LIBFT}
 
-LIBS	:= ${LIBFT}/libft.a
+HEADERS		:= -I include \
+				-I ${LIBFT_DIR}/include
 
-SRCS	:= ${shell find src -iname "*.c"}
-OBJS	:= ${SRCS:src/%.c=obj/%.o}
+SRCS		:= ${shell find src -iname "*.c"}		# Não esquecer de mudar isso auqi
+OBJS		:= ${SRCS:src/%.c=obj/%.o}
 
-SRCS_B	:= ${wildcard src_bonus/*}
-OBJS_B	:= ${SRCS_B:src_bonus/%.c=obj/%.o}
+SRCS_BONUS	:= ${wildcard src_bonus/*}				# Não esquecer de mudar isso auqi
+OBJS_BONUS	:= ${SRCS_BONUS:src_bonus/%.c=obj/%.o}
 
 all: ${NAME}
 bonus: ${NAME_B}
 
-${NAME}: libft ${OBJS}
+${NAME}: ${LIBFT} ${OBJS}
 	@${CC} ${OBJS} ${LIBS} ${HEADERS} -o ${NAME}
 
-${NAME_B}: libft ${OBJS_B}
-	@${CC} ${OBJS_B} ${LIBS} ${HEADERS} -o ${NAME_B}
+${NAME_B}: ${LIBFT} ${OBJS_BONUS}
+	@${CC} ${OBJS_BONUS} ${LIBS} ${HEADERS} -o ${NAME_BONUS}
 
 obj/%.o: src/%.c
 	@mkdir -p ${dir $@}
@@ -46,17 +47,17 @@ obj/%.o: src_bonus/%.c
 	@${CC} ${CFLAGS} -o $@ -c $< ${HEADERS}
 	@printf "Compiling: ${notdir $<}\n"
 
-libft:
-	@make -C ${LIBFT} all
+${LIBFT}:
+	@make -C ${LIBFT_DIR} all
 
 clean:
 	@rm -rf obj
-#	@make -C ${LIBFT} clean
+#	@make -C ${LIBFT_DIR} clean
 
 fclean: clean
 	@rm -f ${NAME}
-	@rm -f ${NAME_B}
-#	@make -C ${LIBFT} clean
+	@rm -f ${NAME_BONUS}
+#	@make -C ${LIBFT_DIR} fclean
 
 re: fclean all
 re_bonus: fclean bonus
