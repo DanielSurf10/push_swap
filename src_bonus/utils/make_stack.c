@@ -6,7 +6,7 @@
 /*   By: danbarbo <danbarbo@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/08 11:25:12 by danbarbo          #+#    #+#             */
-/*   Updated: 2024/03/15 10:23:44 by danbarbo         ###   ########.fr       */
+/*   Updated: 2024/03/15 19:38:12 by danbarbo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,11 @@ static int	string_is_int(char *str)
 	if (!str)
 		return (0);
 	if (str[0] == '-' || str[0] == '+')
+	{
+		if (!str[1])
+			return (0);
 		i++;
+	}
 	while (str[i])
 	{
 		if (ft_isdigit(str[i]) == 0)
@@ -61,6 +65,13 @@ static int	already_exists(t_list **lst, char *str_num)
 	return (0);
 }
 
+static void	*free_all(t_list **lst, char **split)
+{
+	ft_free_split(split);
+	ft_lstclear(lst, free);
+	return (NULL);
+}
+
 t_list	*make_stack(int argc, char *argv[])
 {
 	int		iter_split;
@@ -78,13 +89,11 @@ t_list	*make_stack(int argc, char *argv[])
 		{
 			if (string_is_int(split[iter_split]) == 0
 				|| already_exists(&lst, split[iter_split]) == 1)
-			{
-				ft_free_split(split);
-				ft_lstclear(&lst, free);
-				return (NULL);
-			}
+				return (free_all(&lst, split));
 			iter_split++;
 		}
+		if (!split[0])
+			return (free_all(&lst, split));
 		ft_free_split(split);
 	}
 	return (lst);
