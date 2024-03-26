@@ -2,31 +2,64 @@
 
 import random
 import subprocess
-import sys
 
-# n_values = [3, 5]
-n_values = [3, 5, 50, 100, 500]
-# n_values = range(11)
-# n_values = [x for x in range(3, 101) if x == 3 or x == 5 or x % 10 == 0]
+
+"""
+Esse programa ira testar o seu push_swap
+Siga as instruções abaixo para executar
+Ele irá contar o número de instruções e verificar se foi ordenado
+Se ele encontar um caso que não foi ordenado, ele irá mostrar na tela
+
+É necessário ter o `checker_linux` no mesmo lugar do `push_swap`
+"""
+
+push_swap_path = "./push_swap"
+checker_path = "./checker_linux"
+run_with_valgrind = False				# Mude para true se quiser rodar com o valgrind
+
+# Aqui você deve por por quais quantidade de número vc deseja testar
+# Por exemplo [3, 5, 10]:
+# Vai ser testado vários testes com 3 números
+# Depois vários testes com 5 números
+# E por fim, vários testes com 10 números
+# Pode por quantos números quiser
+# Mas na régua só será testado: [3, 5, 100, 500]
+test_groups = [3, 5, 100, 500]
+
+
+# Aqui você deve por o range de números que deseja considerar ao fazer os testes
+# range_start - menor número
+# range_end - maior número
 range_start = -2**31
 range_end = 2**31 - 1
 
-for n in n_values:
+
+# Aqui você deve por a quantidade de testes que você quer fazer com cada grupo de
+# números do `test_groups`
+# Se colocar muito, vai demorar demais para acabar
+# Padrão = 100
+test_num = 100
+
+
+# Daqui para baixo não precisa mexer
+for n in test_groups:
 	outputs = []
 	max_sequence = []
 	min_sequence = []
-	print(f"For n = {n}:", flush=True)
-	print(f"\n\nFor n = {n}:\n", file=sys.stderr, flush=True)
+	print(f"\n\nFor n = {n}:\n", flush=True)
 
-	for _ in range(100):
-		print(".", end="", flush=True, file=sys.stderr)
+	for _ in range(test_num):
+		print(".", end="", flush=True)
 		numbers = random.sample(range(range_start, range_end + 1), n)
 		numbers_string = ' '.join(map(str, numbers))
 
-		output = subprocess.check_output("valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all ./push_swap " + numbers_string, shell=True)
+		if (run_with_valgrind):
+			output = subprocess.check_output(f"valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all {push_swap_path} {numbers_string}", shell=True)
+		else:
+			output = subprocess.check_output(f"{push_swap_path} {numbers_string}", shell=True)
 		output = output.decode()
 
-		checker = subprocess.check_output(f'./push_swap {numbers_string} | valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all ./checker {numbers_string}', shell=True)
+		checker = subprocess.check_output(f'{push_swap_path} {numbers_string} | {checker_path} {numbers_string}', shell=True)
 		checker = checker.decode()
 
 		if (checker == "KO\n"):
@@ -45,7 +78,7 @@ for n in n_values:
 	maximum = max(outputs)
 	minimum = min(outputs)
 
-	print("Average:", averages)
+	print("\nAverage:", averages)
 	print("Maximum:", maximum)
 	print("Minimum:", minimum)
 	print()
