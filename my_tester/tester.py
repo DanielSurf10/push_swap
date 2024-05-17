@@ -15,7 +15,7 @@ Se ele encontar um caso que não foi ordenado, ele irá mostrar na tela
 
 push_swap_path = "./push_swap"
 checker_path = "./checker_linux"
-run_with_valgrind = False				# Mude para true se quiser rodar com o valgrind
+run_with_valgrind = False				# Mude para True se quiser rodar com o valgrind
 
 # Aqui você deve por por quais quantidade de número vc deseja testar
 # Por exemplo [3, 5, 10]:
@@ -54,7 +54,12 @@ for n in test_groups:
 		numbers_string = ' '.join(map(str, numbers))
 
 		if (run_with_valgrind):
-			output = subprocess.check_output(f"valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all {push_swap_path} {numbers_string}", shell=True)
+			command = f"valgrind -q --track-origins=yes --leak-check=full --show-leak-kinds=all {push_swap_path} {numbers_string}"
+			process = subprocess.Popen(command, shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+			output, output_error = process.communicate()
+			output_error = output_error.decode()
+			if (output_error != ""):
+				print(f"leak sequence: {numbers_string}")
 		else:
 			output = subprocess.check_output(f"{push_swap_path} {numbers_string}", shell=True)
 		output = output.decode()
