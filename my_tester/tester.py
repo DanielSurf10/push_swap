@@ -2,6 +2,7 @@
 
 import random
 import subprocess
+import os
 
 
 """
@@ -11,11 +12,19 @@ Ele irá contar o número de instruções e verificar se foi ordenado
 Se ele encontar um caso que não foi ordenado, ele irá mostrar na tela
 
 É necessário ter o `checker_linux` no mesmo lugar do `push_swap`
+
+Para rodar, coloque o tester no mesmo lugar no push_swap e checker_linux
+e rode `python3 tester.py`
 """
+
 
 push_swap_path = "./push_swap"
 checker_path = "./checker_linux"
 run_with_valgrind = False				# Mude para True se quiser rodar com o valgrind
+
+# Essa variável vai controlar se vai mostrar o teste que ele fez que ocasionou
+# na maior quantidade de movimento e na menor
+show_extreme_sequences = False
 
 # Aqui você deve por por quais quantidade de número vc deseja testar
 # Por exemplo [3, 5, 10]:
@@ -42,6 +51,16 @@ test_num = 100
 
 
 # Daqui para baixo não precisa mexer
+if not os.path.isfile(push_swap_path):
+	print(f"Error: {push_swap_path} not found.")
+	print("Compile o seu push_swap")
+	exit()
+
+if not os.path.isfile(checker_path):
+	print(f"Error: {checker_path} not found.")
+	print("Por favor, coloque o checker_linux no mesmo lugar no push_swap")
+	exit()
+
 for n in test_groups:
 	outputs = []
 	max_sequence = []
@@ -86,9 +105,10 @@ for n in test_groups:
 	print("\nAverage:", averages)
 	print("Maximum:", maximum)
 	print("Minimum:", minimum)
-	print()
-	print("Maximum Sequence:", *max_sequence)
-	print()
-	print("Minimum Sequence:", *min_sequence)
-	print()
+	if show_extreme_sequences:
+		print()
+		print("Maximum Sequence:", *max_sequence)
+		print()
+		print("Minimum Sequence:", *min_sequence)
+		print()
 	print(flush=True)
