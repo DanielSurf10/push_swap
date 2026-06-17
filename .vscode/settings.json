@@ -10,5 +10,5 @@
 		"utility": "c",
 		"variant": "c"
 	},
-	"C_Cpp.default.compilerPath": "/usr/bin/cc",
+	"C_Cpp.default.compilerPath": "/usr/bin/gcc",
 }
