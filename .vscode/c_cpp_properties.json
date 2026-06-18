@@ -3,7 +3,7 @@
         {
             "name": "Linux",
             "includePath": [
-                "${workspaceFolder}/include/**",
+                // "${workspaceFolder}/include/**",
                 "${workspaceFolder}/lib/libft/**",
                 "${workspaceFolder}/novo_push_swap/include/**",
             ],

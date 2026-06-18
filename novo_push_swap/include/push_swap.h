@@ -16,11 +16,36 @@
 #include <stdlib.h>
 #include <limits.h>
 
-#include <stdio.h>		// Apagar dps
-
 #include "libft.h"
 
+// Enum
+
+enum e_bool {
+	FALSE,
+	TRUE
+};
+
+enum e_status {
+	SUCCESS,
+	ERROR
+};
+
+enum e_algorithm {
+	NONE,
+	ADAPTIVE,
+	SIMPLE,
+	MEDIUM,
+	COMPLEX,
+	BENCH
+};
+
 // struct
+
+typedef struct s_options
+{
+	int	algorithm_selected;
+	int	bench_mode;
+}	t_options;
 
 typedef struct s_list
 {
@@ -93,6 +118,11 @@ void	rrr(t_list **lst_a, t_list **lst_b);
 
 // Para apagar
 void	print_stack(t_list *a, t_list *b);
+
+
+// Arrumar
+void	sort_complex_algorithm(t_push_swap push_swap);
+int		parse_args(int argc, char **argv, t_options *options, t_list **stack);
 
 
 #endif

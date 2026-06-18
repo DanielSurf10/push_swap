@@ -33,9 +33,10 @@ def count_moves(arr):
 
 
 def run_tests():
-    header = f"{'n':>6}  {'moves avg':>10}"
+    # header = f"{'n':>6}  {'moves avg':>10}"
+    header = f"quantidade,moves media"
     print(header)
-    print("-" * len(header))
+    # print("-" * len(header))
 
     for size in TEST_SIZES:
         trials = 20 if size <= 10 else (10 if size <= 100 else 5)
@@ -49,7 +50,8 @@ def run_tests():
                 sys.exit(1)
             total += m
         avg = total / trials
-        print(f"{size:>6}  {avg:>10.0f}")
+        # print(f"{size:>6}  {avg:>10.0f}")
+        print(f"{size},{int(avg)}")
 
 
 if __name__ == "__main__":

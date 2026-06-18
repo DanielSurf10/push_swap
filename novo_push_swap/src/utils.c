@@ -70,5 +70,25 @@ int	ft_abs(int num)
 
 float	compute_disorder(t_list *stack)
 {
+	int		mistakes;
+	int		total_pairs;
+	t_list	*node_i;
+	t_list	*node_j;
 
+	mistakes = 0;
+	total_pairs = 0;
+	node_i = stack;
+	while (node_i)
+	{
+		node_j = node_i->next;
+		while (node_j)
+		{
+			total_pairs++;
+			if (*(int *)node_i->content > *(int *)node_j->content)
+				mistakes++;
+			node_j = node_j->next;
+		}
+		node_i = node_i->next;
+	}
+	return ((float)mistakes / (float)total_pairs);
 }
