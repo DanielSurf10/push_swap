@@ -90,5 +90,7 @@ float	compute_disorder(t_list *stack)
 		}
 		node_i = node_i->next;
 	}
+	if (total_pairs == 0)
+		return (0);
 	return ((float)mistakes / (float)total_pairs);
 }

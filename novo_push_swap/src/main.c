@@ -69,7 +69,7 @@ int	main(int argc, char *argv[])
 	}
 
 	disorder = compute_disorder(push_swap.stack_a);
-	if (disorder == 0)
+	if (disorder == 0 || !push_swap.stack_a)
 	{
 		ft_lstclear(&push_swap.stack_a, free);
 		return (0);
@@ -84,7 +84,7 @@ int	main(int argc, char *argv[])
 		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.5)) {
 		// medium
 	} else {
-		sort_complex_algorithm(push_swap);
+		sort_complex_algorithm(&push_swap);
 	}
 
 	ft_lstclear(&push_swap.stack_a, free);

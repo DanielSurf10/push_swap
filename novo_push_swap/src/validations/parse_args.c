@@ -49,12 +49,15 @@ int	parse_int(char *str, int *val_out)
 	sign = 1;
 	*val_out = 0;
 
-	if (str[i] == '-')
+	if (!str[0])
+		return (ERROR);
+
+	if (str[0] == '-' && str[1])
 	{
 		sign = -1;
 		i++;
 	}
-	else if (str[i] == '+')
+	else if (str[0] == '+' && str[1])
 		i++;
 
 	while (str[i])
@@ -62,7 +65,8 @@ int	parse_int(char *str, int *val_out)
 		if (!ft_isdigit(str[i]))
 			return (ERROR);
 		num = (str[i] - '0') + (num * 10);
-		if (num > INT_MAX)
+		if ((sign == 1 && num > INT_MAX)
+			|| (sign == -1 && -num < INT_MIN))
 			return (ERROR);
 		i++;
 	}
@@ -79,6 +83,7 @@ int	parse_args(int argc, char **argv, t_options *options, t_list **stack)
 
 	i = 1;
 	status = SUCCESS;
+	*stack = NULL;
 	while (i < argc)
 	{
 		if (ft_strncmp(argv[i], "--", 2) == 0)
