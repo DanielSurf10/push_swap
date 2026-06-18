@@ -121,8 +121,11 @@ void	print_stack(t_list *a, t_list *b);
 
 
 // Arrumar
-void	sort_complex_algorithm(t_push_swap *push_swap);
 int		parse_args(int argc, char **argv, t_options *options, t_list **stack);
+
+void	sort_simple_algorithm(t_push_swap *push_swap);
+void	sort_medium_algorithm(t_push_swap *push_swap);
+void	sort_complex_algorithm(t_push_swap *push_swap);
 
 
 #endif

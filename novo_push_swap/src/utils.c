@@ -13,39 +13,6 @@
 #include "push_swap.h"
 
 /**
- * @brief Converts a string to a long integer.
- *
- * @param str The string to be converted.
- * @return The long integer.
- */
-long	ft_atol(const char *str)
-{
-	int		i;
-	int		signal;
-	long	num;
-
-	i = 0;
-	signal = 1;
-	num = 0;
-	if (!str)
-		return (0);
-	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
-		i++;
-	if (str[i] == '+' || str[i] == '-')
-	{
-		if (str[i] == '-')
-			signal = -1;
-		i++;
-	}
-	while (ft_isdigit(str[i]))
-	{
-		num = (num * 10) + (str[i] - '0');
-		i++;
-	}
-	return (num * signal);
-}
-
-/**
  * @brief Gets the absolute value of a number.
  *
  * @param num The number to be converted.
@@ -57,16 +24,6 @@ int	ft_abs(int num)
 		return (-num);
 	return (num);
 }
-
-// function compute_disorder(stack a):
-// 	mistakes = 0
-// 	total_pairs = 0
-// 	for i from 0 to size(a)-1:
-// 		for j from i+1 to size(a)-1:
-// 			total_pairs += 1
-// 			if a[i] > a[j]:
-// 				mistakes += 1
-// 	return mistakes / total_pairs
 
 float	compute_disorder(t_list *stack)
 {

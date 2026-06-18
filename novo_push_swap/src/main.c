@@ -77,12 +77,14 @@ int	main(int argc, char *argv[])
 
 	assign_sorted_positions(push_swap.stack_a);
 
+	options.algorithm_selected = SIMPLE;
+
 	if (options.algorithm_selected == SIMPLE
 		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.2)) {
-		// simple
+		sort_simple_algorithm(&push_swap);
 	} else if (options.algorithm_selected == MEDIUM
 		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.5)) {
-		// medium
+		sort_medium_algorithm(&push_swap);
 	} else {
 		sort_complex_algorithm(&push_swap);
 	}
