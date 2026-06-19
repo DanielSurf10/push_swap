@@ -10,11 +10,7 @@ import sys
 
 PUSH_SWAP = "./push_swap"
 
-TEST_SIZES = [
-    3, 4, 5, 6, 7, 8, 9, 10,
-    20, 30, 40, 50, 60, 70, 80, 90, 100,
-    200, 300, 400, 500,
-]
+TEST_SIZES = [round(10 * 1.5**i) for i in range(15)]
 
 
 def count_moves(arr):
@@ -40,7 +36,9 @@ def run_tests():
 
     for size in TEST_SIZES:
         trials = 20 if size <= 10 else (10 if size <= 100 else 5)
+        # trials = 100
         total = 0
+        print(f"Teste - {size:4}: ", file=sys.stderr, end="", flush=True)
         for _ in range(trials):
             arr = list(range(1, size + 1))
             random.shuffle(arr)
@@ -49,6 +47,8 @@ def run_tests():
                 print(f"Error running push_swap for n={size}")
                 sys.exit(1)
             total += m
+            print(".", end='', file=sys.stderr, flush=True)
+        print(file=sys.stderr, flush=True)
         avg = total / trials
         # print(f"{size:>6}  {avg:>10.0f}")
         print(f"{size},{int(avg)}")

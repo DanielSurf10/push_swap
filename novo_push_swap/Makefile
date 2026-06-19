@@ -33,6 +33,7 @@ bonus: ${NAME_B}
 
 ${NAME}: ${LIBFT} ${OBJS}
 	@${CC} ${OBJS} ${LIBS} ${HEADERS} -o ${NAME}
+	@printf "Compiling ${NAME}\n"
 
 ${NAME_B}: ${LIBFT} ${OBJS_BONUS}
 	@${CC} ${OBJS_BONUS} ${LIBS} ${HEADERS} -o ${NAME_BONUS}

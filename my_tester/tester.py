@@ -18,7 +18,7 @@ e rode `python3 tester.py`
 """
 
 
-push_swap_path = "./push_swap"
+push_swap_path = "novo_push_swap/push_swap"
 checker_path = "./checker_linux"
 run_with_valgrind = False				# Mude para True se quiser rodar com o valgrind
 
