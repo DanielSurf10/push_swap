@@ -42,10 +42,11 @@ void	lst_swap(t_list **lst)
  *
  * @param lst_a A pointer to the list to perform the swap operation on.
  */
-void	sa(t_list **lst_a)
+void	sa(t_list **lst_a, t_bench *bench)
 {
 	write(1, "sa\n", 3);
 	lst_swap(lst_a);
+	bench->sa_ops++;
 }
 
 /**
@@ -54,10 +55,11 @@ void	sa(t_list **lst_a)
  *
  * @param lst_b A pointer to the list to perform the swap operation on.
  */
-void	sb(t_list **lst_b)
+void	sb(t_list **lst_b, t_bench *bench)
 {
 	write(1, "sb\n", 3);
 	lst_swap(lst_b);
+	bench->sb_ops++;
 }
 
 /**
@@ -70,9 +72,10 @@ void	sb(t_list **lst_b)
  * @param lst_b The second stack.
  */
 // Performs both sa and sb and print ss
-void	ss(t_list **lst_a, t_list **lst_b)
+void	ss(t_list **lst_a, t_list **lst_b, t_bench *bench)
 {
 	write(1, "ss\n", 3);
 	lst_swap(lst_a);
 	lst_swap(lst_b);
+	bench->ss_ops++;
 }

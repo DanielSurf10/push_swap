@@ -35,21 +35,21 @@ void	move_to_stack_b(t_push_swap *push_swap)
 		{
 			if (index > 0)
 			{
-				ra(&push_swap->stack_a);
+				ra(&push_swap->stack_a, &push_swap->bench);
 				index--;
 			}
 			else
 			{
-				rra(&push_swap->stack_a);
+				rra(&push_swap->stack_a, &push_swap->bench);
 				index++;
 			}
 		}
-		pb(&push_swap->stack_a, &push_swap->stack_b);
+		pb(&push_swap->stack_a, &push_swap->stack_b, &push_swap->bench);
 		lst_size--;
 	}
 }
 
-static void	move_min_to_top(t_list **stack)
+static void	move_min_to_top(t_list **stack, t_bench *bench)
 {
 	int			moves_to_put_in_top;
 	const int	lst_size = ft_lstsize(*stack);;
@@ -63,12 +63,12 @@ static void	move_min_to_top(t_list **stack)
 	{
 		if (moves_to_put_in_top > 0)
 		{
-			rb(stack);
+			rb(stack, bench);
 			moves_to_put_in_top--;
 		}
 		else
 		{
-			rrb(stack);
+			rrb(stack, bench);
 			moves_to_put_in_top++;
 		}
 	}
@@ -78,8 +78,8 @@ void	move_to_stack_a(t_push_swap *push_swap)
 {
 	while (push_swap->stack_b)
 	{
-		move_min_to_top(&push_swap->stack_b);
-		pa(&push_swap->stack_b, &push_swap->stack_a);
+		move_min_to_top(&push_swap->stack_b, &push_swap->bench);
+		pa(&push_swap->stack_b, &push_swap->stack_a, &push_swap->bench);
 	}
 }
 

@@ -66,7 +66,7 @@ void	lst_assign_cost(t_list *lst_a, t_list *lst_b)
  * @param lst_a The list that will receive the values.
  * @param lst_b The list that will provide the values.
  */
-void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b)
+void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b, t_bench *bench)
 {
 	int		cheapest_move;
 	t_list	*aux;
@@ -88,13 +88,13 @@ void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b)
 	}
 	while (cheapest_node->cost_a > 0 && cheapest_node->cost_b > 0)
 	{
-		rr(lst_a, lst_b);
+		rr(lst_a, lst_b, bench);
 		cheapest_node->cost_a--;
 		cheapest_node->cost_b--;
 	}
 	while (cheapest_node->cost_a < 0 && cheapest_node->cost_b < 0)
 	{
-		rrr(lst_a, lst_b);
+		rrr(lst_a, lst_b, bench);
 		cheapest_node->cost_a++;
 		cheapest_node->cost_b++;
 	}
@@ -102,12 +102,12 @@ void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b)
 	{
 		if (cheapest_node->cost_a > 0)
 		{
-			ra(lst_a);
+			ra(lst_a, bench);
 			cheapest_node->cost_a--;
 		}
 		else
 		{
-			rra(lst_a);
+			rra(lst_a, bench);
 			cheapest_node->cost_a++;
 		}
 	}
@@ -115,16 +115,16 @@ void	find_and_perform_cheapest_move(t_list **lst_a, t_list **lst_b)
 	{
 		if (cheapest_node->cost_b > 0)
 		{
-			rb(lst_b);
+			rb(lst_b, bench);
 			cheapest_node->cost_b--;
 		}
 		else
 		{
-			rrb(lst_b);
+			rrb(lst_b, bench);
 			cheapest_node->cost_b++;
 		}
 	}
-	pa(lst_b, lst_a);
+	pa(lst_b, lst_a, bench);
 }
 
 void	sort_complex_algorithm(t_push_swap *push_swap)
@@ -158,31 +158,31 @@ void	sort_complex_algorithm(t_push_swap *push_swap)
 		{
 			if (index > 0)
 			{
-				ra(&push_swap->stack_a);
+				ra(&push_swap->stack_a, &push_swap->bench);
 				index--;
 			}
 			else
 			{
-				rra(&push_swap->stack_a);
+				rra(&push_swap->stack_a, &push_swap->bench);
 				index++;
 			}
 		}
-		pb(&push_swap->stack_a, &push_swap->stack_b);
+		pb(&push_swap->stack_a, &push_swap->stack_b, &push_swap->bench);
 		lst_size--;
 	}
 
 	if (push_swap->stack_a && is_list_sorted(push_swap->stack_a) == 0)
 	{
 		if (lst_size == 2)
-			sa(&push_swap->stack_a);
+			sa(&push_swap->stack_a, &push_swap->bench);
 		else if (lst_size == 3)
 		{
 			if (push_swap->stack_a == lst_get_max_value(push_swap->stack_a))		// Se o primeiro elemento for o maior dos 3
-				ra(&push_swap->stack_a);
+				ra(&push_swap->stack_a, &push_swap->bench);
 			else if (push_swap->stack_a->next == lst_get_max_value(push_swap->stack_a->next))		// Se o segundo elemento for o maior dos 3
-				rra(&push_swap->stack_a);
+				rra(&push_swap->stack_a, &push_swap->bench);
 			if (push_swap->stack_a->sorted_position > push_swap->stack_a->next->sorted_position)		// Se o segundo elementos for maior que o primeiro
-				sa(&push_swap->stack_a);
+				sa(&push_swap->stack_a, &push_swap->bench);
 		}
 	}
 
@@ -194,7 +194,7 @@ void	sort_complex_algorithm(t_push_swap *push_swap)
 		assign_current_indices(push_swap->stack_b);
 		lst_assign_cost(push_swap->stack_a, push_swap->stack_b);
 		// print_stack(push_swap->stack_a, push_swap->stack_b);
-		find_and_perform_cheapest_move(&push_swap->stack_a, &push_swap->stack_b);
+		find_and_perform_cheapest_move(&push_swap->stack_a, &push_swap->stack_b, &push_swap->bench);
 		lst_size--;
 	}
 
@@ -208,12 +208,12 @@ void	sort_complex_algorithm(t_push_swap *push_swap)
 	{
 		if (moves_to_sort > 0)
 		{
-			ra(&push_swap->stack_a);
+			ra(&push_swap->stack_a, &push_swap->bench);
 			moves_to_sort--;
 		}
 		else
 		{
-			rra(&push_swap->stack_a);
+			rra(&push_swap->stack_a, &push_swap->bench);
 			moves_to_sort++;
 		}
 	}

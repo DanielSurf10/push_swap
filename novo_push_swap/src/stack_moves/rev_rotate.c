@@ -42,10 +42,11 @@ void	lst_rev_rotate(t_list **lst)
  * @param lst_a A pointer to the list to perform the reverse rotate
  *              operation on.
  */
-void	rra(t_list **lst_a)
+void	rra(t_list **lst_a, t_bench *bench)
 {
 	write(1, "rra\n", 4);
 	lst_rev_rotate(lst_a);
+	bench->rra_ops++;
 }
 
 /**
@@ -55,10 +56,11 @@ void	rra(t_list **lst_a)
  * @param lst_b A pointer to the list to perform the reverse rotate
  *              operation on.
  */
-void	rrb(t_list **lst_b)
+void	rrb(t_list **lst_b, t_bench *bench)
 {
 	write(1, "rrb\n", 4);
 	lst_rev_rotate(lst_b);
+	bench->rrb_ops++;
 }
 
 /**
@@ -68,9 +70,10 @@ void	rrb(t_list **lst_b)
  * @param lst_a Pointer to the first stack.
  * @param lst_b Pointer to the second stack.
  */
-void	rrr(t_list **lst_a, t_list **lst_b)
+void	rrr(t_list **lst_a, t_list **lst_b, t_bench *bench)
 {
 	write(1, "rrr\n", 4);
 	lst_rev_rotate(lst_a);
 	lst_rev_rotate(lst_b);
+	bench->rrr_ops++;
 }

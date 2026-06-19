@@ -39,10 +39,11 @@ void	lst_rotate(t_list **lst)
  *
  * @param lst_a A pointer to the list representing stack A.
  */
-void	ra(t_list **lst_a)
+void	ra(t_list **lst_a, t_bench *bench)
 {
 	write(1, "ra\n", 3);
 	lst_rotate(lst_a);
+	bench->ra_ops++;
 }
 
 /**
@@ -50,10 +51,11 @@ void	ra(t_list **lst_a)
  *
  * @param lst_b A pointer to the list representing stack B.
  */
-void	rb(t_list **lst_b)
+void	rb(t_list **lst_b, t_bench *bench)
 {
 	write(1, "rb\n", 3);
 	lst_rotate(lst_b);
+	bench->rb_ops++;
 }
 
 /**
@@ -62,9 +64,10 @@ void	rb(t_list **lst_b)
  * @param lst_a Pointer to the first stack.
  * @param lst_b Pointer to the second stack.
  */
-void	rr(t_list **lst_a, t_list **lst_b)
+void	rr(t_list **lst_a, t_list **lst_b, t_bench *bench)
 {
 	write(1, "rr\n", 3);
 	lst_rotate(lst_a);
 	lst_rotate(lst_b);
+	bench->rr_ops++;
 }

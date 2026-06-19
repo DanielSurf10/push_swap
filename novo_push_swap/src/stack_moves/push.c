@@ -40,10 +40,11 @@ void	lst_push(t_list **lst_a, t_list **lst_b)
  * @param lst_b Pointer to the top of the stack B.
  * @param lst_a Pointer to the top of the stack A.
  */
-void	pa(t_list **lst_b, t_list **lst_a)
+void	pa(t_list **lst_b, t_list **lst_a, t_bench *bench)
 {
 	write(1, "pa\n", 3);
 	lst_push(lst_b, lst_a);
+	bench->pa_ops++;
 }
 
 /**
@@ -56,8 +57,9 @@ void	pa(t_list **lst_b, t_list **lst_a)
  * @param lst_a Pointer to the top of the stack A.
  * @param lst_b Pointer to the top of the stack B.
  */
-void	pb(t_list **lst_a, t_list **lst_b)
+void	pb(t_list **lst_a, t_list **lst_b, t_bench *bench)
 {
 	write(1, "pb\n", 3);
 	lst_push(lst_a, lst_b);
+	bench->pb_ops++;
 }

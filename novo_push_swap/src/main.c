@@ -45,7 +45,7 @@
 //	[X]	Fazer algoritmo com complexidade O(n²)
 //	[X]	Fazer algoritmo com complexidade O(n√n)
 //	[X]	Fazer algoritmo com complexidade O(nlog(n))
-//	[ ]	Implementar lógica do `--bench`
+//	[X]	Implementar lógica do `--bench`
 
 int	main(int argc, char *argv[])
 {
@@ -57,37 +57,38 @@ int	main(int argc, char *argv[])
 	if (argc < 2)
 		return (0);
 
-	options.algorithm_selected = NONE;
-	options.bench_mode = FALSE;
+	push_swap = (t_push_swap){0};
+	options = (t_options){0};
 	status = parse_args(argc, argv, &options, &push_swap.stack_a);
-	push_swap.stack_b = NULL;
 
 	if (status == ERROR)
 	{
-		ft_putstr_fd("Error\n", 2);
+		ft_putstr_fd("Error\n", STDERR_FILENO);
 		return (1);
 	}
 
-	disorder = compute_disorder(push_swap.stack_a);
-	if (disorder == 0 || !push_swap.stack_a)
-	{
-		ft_lstclear(&push_swap.stack_a, free);
+	if (!push_swap.stack_a)
 		return (0);
-	}
 
-	assign_sorted_positions(push_swap.stack_a);
+	disorder = compute_disorder(push_swap.stack_a);
+	if (disorder != 0 && push_swap.stack_a)
+	{
+		assign_sorted_positions(push_swap.stack_a);
+		if (options.algorithm_selected == SIMPLE
+			|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.2))
+			sort_simple_algorithm(&push_swap);
+		else if (options.algorithm_selected == MEDIUM
+			|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.5))
+			sort_medium_algorithm(&push_swap);
+		else
+			sort_complex_algorithm(&push_swap);
 
-	if (options.algorithm_selected == SIMPLE
-		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.2)) {
-		sort_simple_algorithm(&push_swap);
-	} else if (options.algorithm_selected == MEDIUM
-		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.5)) {
-		sort_medium_algorithm(&push_swap);
-	} else {
-		sort_complex_algorithm(&push_swap);
+		ft_lstclear(&push_swap.stack_a, free);
 	}
 
 	ft_lstclear(&push_swap.stack_a, free);
+	if (options.bench_mode)
+		print_benchmark(push_swap.bench, options.algorithm_selected, disorder);
 
 	return (0);
 }

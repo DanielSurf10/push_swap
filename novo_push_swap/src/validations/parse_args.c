@@ -83,7 +83,6 @@ int	parse_args(int argc, char **argv, t_options *options, t_list **stack)
 
 	i = 1;
 	status = SUCCESS;
-	*stack = NULL;
 	while (i < argc)
 	{
 		if (ft_strncmp(argv[i], "--", 2) == 0)
