@@ -1,59 +1,38 @@
 #include "push_swap.h"
 
-void	rotate_until_sorted(t_push_swap *push_swap)
+static void	move_min_to_top(t_list **stack)
 {
-	int	moves_to_sort;
-	int	stack_size;
+	int			moves_to_put_in_top;
+	const int	lst_size = ft_lstsize(*stack);
 
-	moves_to_sort = lst_get_index(push_swap->stack_a, lst_get_min_value(push_swap->stack_a));
-	stack_size = ft_lstsize(push_swap->stack_a);
+	moves_to_put_in_top = lst_get_index(*stack, lst_get_min_value(*stack));
 
-	if (moves_to_sort > stack_size / 2)
-		moves_to_sort = moves_to_sort - stack_size;
+	if (moves_to_put_in_top > lst_size / 2)
+		moves_to_put_in_top = moves_to_put_in_top - lst_size;
 
-	while (moves_to_sort != 0)
+	while (moves_to_put_in_top != 0)
 	{
-		if (moves_to_sort > 0)
+		if (moves_to_put_in_top > 0)
 		{
-			ra(&push_swap->stack_a);
-			moves_to_sort--;
+			ra(stack);
+			moves_to_put_in_top--;
 		}
 		else
 		{
-			rra(&push_swap->stack_a);
-			moves_to_sort++;
+			rra(stack);
+			moves_to_put_in_top++;
 		}
 	}
 }
 
 void	sort_simple_algorithm(t_push_swap *push_swap)
 {
-	int				i;
-	int				swap_flag;
-	const int		stack_size = ft_lstsize(push_swap->stack_a);
-	const t_list	*min_value = lst_get_min_value(push_swap->stack_a);
-	const t_list	*max_value = lst_get_max_value(push_swap->stack_a);
-
-	if (stack_size < 2)
-		return ;
-	i = stack_size;
-	swap_flag = 1;
-	while (swap_flag == 1)
+	while (push_swap->stack_a)
 	{
-		swap_flag = 0;
-		while (i > 0)
-		{
-			if (*(int *)push_swap->stack_a->content > *(int *)push_swap->stack_a->next->content
-				&& !(push_swap->stack_a == max_value && push_swap->stack_a->next == min_value))
-			{
-				sa(&push_swap->stack_a);
-				swap_flag = 1;
-			}
-			rra(&push_swap->stack_a);
-			i--;
-		}
-		i = stack_size;
+		move_min_to_top(&push_swap->stack_a);
+		pb(&push_swap->stack_a, &push_swap->stack_b);
 	}
 
-	rotate_until_sorted(push_swap);
+	while (push_swap->stack_b)
+		pa(&push_swap->stack_b, &push_swap->stack_a);
 }

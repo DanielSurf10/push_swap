@@ -49,7 +49,7 @@ void	move_to_stack_b(t_push_swap *push_swap)
 	}
 }
 
-void	move_min_to_top(t_list **stack)
+static void	move_min_to_top(t_list **stack)
 {
 	int			moves_to_put_in_top;
 	const int	lst_size = ft_lstsize(*stack);;
