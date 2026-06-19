@@ -42,9 +42,9 @@
 //
 //	[X]	Fazer a função que calcula a disordem dos elementos
 //	[X]	Fazer roteamento de qual algoritmo será usado, usando os argumentos ou não
-//	[ ]	Fazer algoritmo com complexidade O(n²)
-//	[ ]	Fazer algoritmo com complexidade O(n√n)
-//	[ ]	Fazer algoritmo com complexidade O(nlog(n))
+//	[X]	Fazer algoritmo com complexidade O(n²)
+//	[X]	Fazer algoritmo com complexidade O(n√n)
+//	[X]	Fazer algoritmo com complexidade O(nlog(n))
 //	[ ]	Implementar lógica do `--bench`
 
 int	main(int argc, char *argv[])
@@ -76,8 +76,6 @@ int	main(int argc, char *argv[])
 	}
 
 	assign_sorted_positions(push_swap.stack_a);
-
-	options.algorithm_selected = SIMPLE;
 
 	if (options.algorithm_selected == SIMPLE
 		|| (options.algorithm_selected == ADAPTIVE && disorder <= 0.2)) {
